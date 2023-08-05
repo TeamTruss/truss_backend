@@ -1,0 +1,11 @@
+origins = [
+  "*"
+]
+
+methods = [
+  "*"
+]
+
+headers = [
+  "*"
+]
