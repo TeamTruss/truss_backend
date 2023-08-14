@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from dto.dto import Builder
+from model.model import Builder
 from schemas.schema import BuilderSchema
 from config.database import engineconn
 

@@ -4,7 +4,7 @@ from starlette.middleware.cors import CORSMiddleware
 from config.CORS import origins, methods, headers
 
 from config.database import engineconn
-from dto.dto import Builder
+from model.model import Builder
 from routers.builder_router import builder_router
 
 app = FastAPI(
@@ -27,6 +27,7 @@ app.add_middleware(
 app.include_router(builder_router)
 
 # http://127.0.0.1:8000/docs
+# http://127.0.0.1:8000/redoc
 
 @app.get("/")
 async def first_get():
