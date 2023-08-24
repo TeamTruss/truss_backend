@@ -1,7 +1,7 @@
 from os import environ
 from dotenv.main import load_dotenv
 from sqlalchemy import create_engine
-from sqlalchemy.orm import  sessionmaker
+from sqlalchemy.orm import sessionmaker
 
 load_dotenv()
 

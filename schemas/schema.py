@@ -2,22 +2,41 @@ from pydantic import BaseModel
 
 class BuilderSchema(BaseModel): 
   name: str
-  url: str
+  sotong: str
+  price: str
+  sigongResult: str
+  dateJunsu: str
+  AS: str
+  satisfaction: str
+  description: str
 
-class OfficeSchema(BaseModel): 
+class ConstructorSchema(BaseModel): 
   name: str
-  url: str
+  sotong: str
+  price: str
+  sigongResult: str
+  dateJunsu: str
+  AS: str
+  satisfaction: str
+  description: str
+
+class PersonSchema(BaseModel):
+  name: str
+  phoneNumber: str
+  type: str
+  location: str
+  agree: bool
   
+
+
+
 class BuildingSchema(BaseModel): 
   name: str
   src: str
   price: str
-  minPrice: str
-  minDate: str
-  maxDate: str
-  desc: str
+  description: str
   rate: float
-  like: int
+  like_num: int
   date: str
-  office: BuilderSchema
-  builder: OfficeSchema
+  constructor: ConstructorSchema
+  builder: BuilderSchema

@@ -29,12 +29,12 @@ app.include_router(builder_router)
 # http://127.0.0.1:8000/docs
 # http://127.0.0.1:8000/redoc
 
-@app.get("/")
+@app.get("/api/")
 async def first_get():
   example = session.query(Builder).all()
   return example
 
-@app.get("/building/{item_id}")
+@app.get("/api//building/{item_id}")
 async def root(item_id: int):
   return {
     "title": "string{item_id}",
@@ -42,9 +42,7 @@ async def root(item_id: int):
     "desc": "string"
   }
 
-
-
-@app.get("/office/{office_id}")
+@app.get("/api//office/{office_id}")
 async def root(office_id: int):
   return {
     "period": "4개월 21일",
