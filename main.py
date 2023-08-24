@@ -1,11 +1,12 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
 from config.CORS import origins, methods, headers
 
 from config.database import engineconn
-from model.model import Builder
 from routers.builder_router import builder_router
+from routers.constructor_router import constructor_router
+from routers.person_router import person_router
 
 app = FastAPI(
   title="Truss API",
@@ -25,32 +26,8 @@ app.add_middleware(
 )
 
 app.include_router(builder_router)
+app.include_router(constructor_router)
+app.include_router(person_router)
 
 # http://127.0.0.1:8000/docs
 # http://127.0.0.1:8000/redoc
-
-@app.get("/api/")
-async def first_get():
-  example = session.query(Builder).all()
-  return example
-
-@app.get("/api//building/{item_id}")
-async def root(item_id: int):
-  return {
-    "title": "string{item_id}",
-    "src": "string",
-    "desc": "string"
-  }
-
-@app.get("/api//office/{office_id}")
-async def root(office_id: int):
-  return {
-    "period": "4개월 21일",
-    "dPrice": "5000만원 이하",
-    "rate": 4.6,
-    "like": 4.7,
-    "office":"하우스팩토리",
-    "officeURL": "/",
-    "builder":"하우스팩토리",
-    "builderURL":"/"
-  }
