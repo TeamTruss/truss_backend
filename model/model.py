@@ -33,4 +33,5 @@ class Person(Base):
   name = Column(TEXT, nullable=False)
   phoneNumber = Column(TEXT, nullable=False)
   type = Column(TEXT, nullable=False)
+  location = Column(TEXT, nullable=False)
   agree = Column(BOOLEAN, nullable=False)

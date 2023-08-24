@@ -11,7 +11,7 @@ create table builder
   dateJunsu TEXT not null,
   afterService TEXT not null,
   satisfaction TEXT not null,
-  description TEXT not null,
+  description TEXT not null
 );
 
 create table constructor
@@ -25,7 +25,7 @@ create table constructor
   dateJunsu TEXT not null,
   afterService TEXT not null,
   satisfaction TEXT not null,
-  description TEXT not null,
+  description TEXT not null
 );
 
 create table person
