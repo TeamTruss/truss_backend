@@ -35,6 +35,7 @@ create table person
   name TEXT not null,
   phoneNumber TEXT not null,
   type TEXT not null,
+  location TEXT not null,
   agree BOOLEAN
 );
 

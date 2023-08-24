@@ -15,7 +15,7 @@ session = engine.sessionmaker()
 @constructor_router.post("/")
 async def post_constructor(constructor:ConstructorSchema):
   session.add(
-    constructor(
+    Constructor(
       name=constructor.name,
       sotong= constructor.sotong,
       price=constructor.price,
