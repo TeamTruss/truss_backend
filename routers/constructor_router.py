@@ -21,7 +21,7 @@ async def post_constructor(constructor:ConstructorSchema):
       price=constructor.price,
       sigongResult=constructor.sigongResult,
       dateJunsu=constructor.dateJunsu,
-      AS=constructor.AS,
+      afterService=constructor.afterService,
       satisfaction=constructor.satisfaction,
       description=constructor.description
     )

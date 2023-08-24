@@ -21,7 +21,7 @@ async def post_builder(builder:BuilderSchema):
       price=builder.price,
       sigongResult=builder.sigongResult,
       dateJunsu=builder.dateJunsu,
-      AS=builder.AS,
+      afterService=builder.afterService,
       satisfaction=builder.satisfaction,
       description=builder.description
     )

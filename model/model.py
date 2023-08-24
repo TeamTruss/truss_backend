@@ -11,7 +11,7 @@ class Builder(Base):
   price = Column(TEXT, nullable=False)
   sigongResult = Column(TEXT, nullable=False)
   dateJunsu = Column(TEXT, nullable=False)
-  AS = Column(TEXT, nullable=False)
+  afterService = Column(TEXT, nullable=False)
   satisfaction = Column(TEXT, nullable=False)
   description = Column(TEXT, nullable=False)
 
@@ -23,7 +23,7 @@ class Constructor(Base):
   price = Column(TEXT, nullable=False)
   sigongResult = Column(TEXT, nullable=False)
   dateJunsu = Column(TEXT, nullable=False)
-  AS = Column(TEXT, nullable=False)
+  afterService = Column(TEXT, nullable=False)
   satisfaction = Column(TEXT, nullable=False)
   description = Column(TEXT, nullable=False)
 

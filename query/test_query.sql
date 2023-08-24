@@ -9,7 +9,7 @@ create table builder
   price TEXT not null,
   sigongResult TEXT not null,
   dateJunsu TEXT not null,
-  AS TEXT not null,
+  afterService TEXT not null,
   satisfaction TEXT not null,
   description TEXT not null,
 );
@@ -23,7 +23,7 @@ create table constructor
   price TEXT not null,
   sigongResult TEXT not null,
   dateJunsu TEXT not null,
-  AS TEXT not null,
+  afterService TEXT not null,
   satisfaction TEXT not null,
   description TEXT not null,
 );

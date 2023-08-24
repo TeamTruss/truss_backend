@@ -6,7 +6,7 @@ class BuilderSchema(BaseModel):
   price: str
   sigongResult: str
   dateJunsu: str
-  AS: str
+  afterService: str
   satisfaction: str
   description: str
 
@@ -16,7 +16,7 @@ class ConstructorSchema(BaseModel):
   price: str
   sigongResult: str
   dateJunsu: str
-  AS: str
+  afterService: str
   satisfaction: str
   description: str
 
