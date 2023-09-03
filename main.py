@@ -4,8 +4,7 @@ from starlette.middleware.cors import CORSMiddleware
 from config.CORS import origins, methods, headers
 
 from config.database import engineconn
-from routers.builder_router import builder_router
-from routers.constructor_router import constructor_router
+from routers.office_router import office_router
 from routers.person_router import person_router
 
 app = FastAPI(
@@ -25,8 +24,7 @@ app.add_middleware(
   allow_headers=headers,
 )
 
-app.include_router(builder_router)
-app.include_router(constructor_router)
+app.include_router(office_router)
 app.include_router(person_router)
 
 # http://127.0.0.1:8000/docs

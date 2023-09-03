@@ -1,28 +1,15 @@
 CREATE SCHEMA truss_data
 
-create table builder
+create table office
 (
   id BIGINT auto_increment,
   primary key (id),
-  name TEXT not null,
-  sotong TEXT not null,
+  officeType TEXT not null,
+  officeName TEXT not null,
+  communication TEXT not null,
   price TEXT not null,
-  sigongResult TEXT not null,
-  dateJunsu TEXT not null,
-  afterService TEXT not null,
-  satisfaction TEXT not null,
-  description TEXT not null
-);
-
-create table constructor
-(
-  id BIGINT auto_increment,
-  primary key (id),
-  name TEXT not null,
-  sotong TEXT not null,
-  price TEXT not null,
-  sigongResult TEXT not null,
-  dateJunsu TEXT not null,
+  result TEXT not null,
+  keepingDeadline TEXT not null,
   afterService TEXT not null,
   satisfaction TEXT not null,
   description TEXT not null

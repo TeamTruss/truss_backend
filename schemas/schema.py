@@ -1,21 +1,12 @@
 from pydantic import BaseModel
 
-class BuilderSchema(BaseModel): 
-  name: str
-  sotong: str
+class OfficeSchema(BaseModel): 
+  officeType: str
+  officeName: str
+  communication: str
   price: str
-  sigongResult: str
-  dateJunsu: str
-  afterService: str
-  satisfaction: str
-  description: str
-
-class ConstructorSchema(BaseModel): 
-  name: str
-  sotong: str
-  price: str
-  sigongResult: str
-  dateJunsu: str
+  result: str
+  keepingDeadline: str
   afterService: str
   satisfaction: str
   description: str
@@ -26,7 +17,7 @@ class PersonSchema(BaseModel):
   type: str
   location: str
   agree: bool
-  
+
 
 
 
@@ -38,5 +29,4 @@ class BuildingSchema(BaseModel):
   rate: float
   like_num: int
   date: str
-  constructor: ConstructorSchema
-  builder: BuilderSchema
+  office: OfficeSchema
