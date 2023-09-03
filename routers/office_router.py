@@ -16,12 +16,12 @@ session = engine.sessionmaker()
 async def post_office(office:OfficeSchema):
   session.add(
     Office(
-      officeType=office.type,
-      officeName=office.name,
-      communication=office.sotong,
+      officeType=office.officeType,
+      officeName=office.officeName,
+      communication=office.communication,
       price=office.price,
-      sigongResult=office.sigongResult,
-      dateJunsu=office.dateJunsu,
+      sigongResult=office.result,
+      keepingDeadline=office.keepingDeadline,
       afterService=office.afterService,
       satisfaction=office.satisfaction,
       description=office.description
