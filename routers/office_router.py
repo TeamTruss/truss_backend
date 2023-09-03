@@ -20,7 +20,7 @@ async def post_office(office:OfficeSchema):
       officeName=office.officeName,
       communication=office.communication,
       price=office.price,
-      sigongResult=office.result,
+      result=office.result,
       keepingDeadline=office.keepingDeadline,
       afterService=office.afterService,
       satisfaction=office.satisfaction,
