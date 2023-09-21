@@ -24,3 +24,25 @@ class Person(Base):
   type = Column(TEXT, nullable=False)
   location = Column(TEXT, nullable=False)
   agree = Column(BOOLEAN, nullable=False)
+
+class Comment(Base):
+  __tablename__ = 'comment'
+  id= Column(BIGINT, nullable=False, autoincrement=True, primary_key=True)
+  author=Column(BIGINT, nullable=False)
+  text=Column(TEXT, nullable=False)
+
+class Post(Base):
+  __tablename__ = 'post'
+  id = Column(BIGINT, nullable=False, autoincrement=True, primary_key=True)
+  title = Column(TEXT, nullable=False)
+  text = Column(TEXT, nullable=False)
+  pictures = Column(TEXT, nullable=False)
+  author = Column(TEXT, nullable=False)
+  timestamp = Column(BIGINT, nullable=False)
+  category = Column(TEXT, nullable=False)
+  thumbnail = Column(TEXT, nullable=False)
+  likeCount = Column(BIGINT, nullable=False)
+  viewCount = Column(BIGINT, nullable=False)
+  comments = Column(TEXT, nullable=False)
+  
+

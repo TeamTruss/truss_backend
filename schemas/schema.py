@@ -18,6 +18,17 @@ class PersonSchema(BaseModel):
   location: str
   agree: bool
 
+class PostSchema(BaseModel):
+  title : str
+  text : str
+  pictures : str
+  author : str
+  timestamp : int
+  category : str
+  thumbnail : str
+  likeCount : int
+  viewCount : int
+  comments : str
 
 
 

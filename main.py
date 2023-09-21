@@ -6,6 +6,7 @@ from config.CORS import origins, methods, headers
 from config.database import engineconn
 from routers.office_router import office_router
 from routers.person_router import person_router
+from routers.post_router import post_router
 
 app = FastAPI(
   title="Truss API",
@@ -26,6 +27,7 @@ app.add_middleware(
 
 app.include_router(office_router)
 app.include_router(person_router)
+app.include_router(post_router)
 
 # http://127.0.0.1:8000/docs
 # http://127.0.0.1:8000/redoc
