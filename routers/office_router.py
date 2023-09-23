@@ -16,15 +16,15 @@ session = engine.sessionmaker()
 async def post_office(office:OfficeSchema):
   session.add(
     Office(
-      officeType=office.officeType,
-      officeName=office.officeName,
-      communication=office.communication,
-      price=office.price,
-      result=office.result,
-      keepingDeadline=office.keepingDeadline,
-      afterService=office.afterService,
-      satisfaction=office.satisfaction,
-      description=office.description
+      officeType = office.officeType,
+      officeName = office.officeName,
+      communication = office.communication,
+      price = office.price,
+      result = office.result,
+      keepingDeadline = office.keepingDeadline,
+      afterService = office.afterService,
+      satisfaction = office.satisfaction,
+      description = office.description
     )
   )
   session.commit()
@@ -32,10 +32,5 @@ async def post_office(office:OfficeSchema):
 
 @office_router.get("/")
 async def get_offices():
-  return {
-    "title": "string",
-    "src": "string",
-    "minDate": "string",
-    "maxDate": "string",
-    "minPrice": "string"
-  }
+  response=session.query(Office).all()
+  return response

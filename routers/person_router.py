@@ -16,11 +16,11 @@ session = engine.sessionmaker()
 async def post_person(person:PersonSchema):
   session.add(
     Person(
-      name=person.name,
-      phoneNumber=person.phoneNumber,
-      type=person.type,
-      location=person.location,
-      agree=person.agree,
+      name = person.name,
+      phoneNumber = person.phoneNumber,
+      type = person.type,
+      location = person.location,
+      agree = person.agree,
     )
   )
   session.commit()
@@ -28,10 +28,5 @@ async def post_person(person:PersonSchema):
 
 @person_router.get("/")
 async def get_persons():
-  return {
-    "title": "string",
-    "src": "string",
-    "minDate": "string",
-    "maxDate": "string",
-    "minPrice": "string"
-  }
+  response=session.query(Person).all()
+  return response

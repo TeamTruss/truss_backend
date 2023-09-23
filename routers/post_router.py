@@ -33,10 +33,5 @@ async def post_post(post:PostSchema):
 
 @post_router.get("/")
 async def get_posts():
-  return {
-    "title": "string",
-    "src": "string",
-    "minDate": "string",
-    "maxDate": "string",
-    "minPrice": "string"
-  }
+  response=session.query(Post).all()
+  return response
