@@ -1,3 +1,5 @@
+from datetime import datetime
+from typing import Optional
 from pydantic import BaseModel
 
 class OfficeSchema(BaseModel): 
@@ -23,7 +25,8 @@ class PostSchema(BaseModel):
   text : str
   pictures : str
   author : str
-  timestamp : int
+  create_at : datetime
+  updated_at : datetime
   category : str
   thumbnail : str
   likeCount : int

@@ -1,7 +1,7 @@
 from os import environ
 from dotenv.main import load_dotenv
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.orm import sessionmaker
 
 load_dotenv()
 
@@ -20,16 +20,8 @@ class engineconn:
     self.engine = create_engine(DB_CONN_URL)
 
   def sessionmaker(self):
-    return scoped_session(
-      sessionmaker(
-      autocommit=False,
-      autoflush=False,
-      bind=self.engine
-      )
-    )
+    return sessionmaker(bind=self.engine)()
   
   def connection(self):
     return self.engine.connect()
-  
-  
   

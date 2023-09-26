@@ -1,4 +1,5 @@
-from sqlalchemy import Column, TEXT, BIGINT, BOOLEAN
+from datetime import datetime
+from sqlalchemy import Column, TEXT, BIGINT, BOOLEAN, DateTime
 from sqlalchemy.orm import  declarative_base
   
 Base = declarative_base()
@@ -18,7 +19,7 @@ class Office(Base):
 
 class Person(Base):
   __tablename__ = 'person'
-  id = Column(BIGINT, nullable=False, autoincrement= True, primary_key=True)
+  id = Column(BIGINT, nullable=False, autoincrement=True, primary_key=True)
   name = Column(TEXT, nullable=False)
   phoneNumber = Column(TEXT, nullable=False)
   type = Column(TEXT, nullable=False)
@@ -38,7 +39,8 @@ class Post(Base):
   text = Column(TEXT, nullable=False)
   pictures = Column(TEXT, nullable=False)
   author = Column(TEXT, nullable=False)
-  timestamp = Column(BIGINT, nullable=False)
+  created_at = Column(DateTime, default=datetime.now)
+  updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)
   category = Column(TEXT, nullable=False)
   thumbnail = Column(TEXT, nullable=False)
   likeCount = Column(BIGINT, nullable=False)

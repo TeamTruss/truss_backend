@@ -26,6 +26,22 @@ create table person
   agree BOOLEAN
 );
 
+create table post
+(
+  id BIGINT auto_increment,
+  primary key (id),
+  title TEXT not null,
+  text TEXT not null,
+  pictures TEXT not null,
+  author TEXT not null,
+  timestamp BIGINT not null,
+  category TEXT not null,
+  thumbnail TEXT not null,
+  likeCount BIGINT not null,
+  viewCount BIGINT not null,
+  comments TEXT not null
+);
+
 
 
 create table building

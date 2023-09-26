@@ -20,7 +20,6 @@ async def post_post(post:PostSchema):
       text = post.text,
       pictures = post.pictures,
       author = post.author,
-      timestamp = post.timestamp,
       category = post.category,
       thumbnail = post.thumbnail,
       likeCount = post.likeCount,
@@ -33,5 +32,5 @@ async def post_post(post:PostSchema):
 
 @post_router.get("/")
 async def get_posts():
-  response=session.query(Post).all()
+  response=session.query(Post).all()#.filter(Post.timestamp > 20)
   return response
