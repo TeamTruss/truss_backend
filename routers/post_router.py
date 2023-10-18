@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException
+from sqlalchemy import func
 from model.model import Post
 from schemas.schema import PostSchema
 from config.database import engineconn
@@ -33,4 +34,9 @@ async def post_post(post:PostSchema):
 @post_router.get("/")
 async def get_posts():
   response=session.query(Post).all()#.filter(Post.timestamp > 20)
+  return response
+
+@post_router.get("/{pid}")
+async def get_post(pid:int):
+  response=session.query(Post).filter(Post.id==pid).one()
   return response

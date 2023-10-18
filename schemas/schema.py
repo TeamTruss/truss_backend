@@ -25,14 +25,14 @@ class PostSchema(BaseModel):
   text : str
   pictures : str
   author : str
-  create_at : datetime
-  updated_at : datetime
   category : str
   thumbnail : str
   likeCount : int
   viewCount : int
   comments : str
 
+class UserSchema(BaseModel):
+  name:str
 
 
 class BuildingSchema(BaseModel): 
