@@ -25,13 +25,29 @@ class PostSchema(BaseModel):
   text : str
   pictures : str
   author : str
-  create_at : datetime
-  updated_at : datetime
   category : str
   thumbnail : str
   likeCount : int
   viewCount : int
   comments : str
+
+class HouseSchema(BaseModel):
+  title : str
+  image: str
+  subImage1: str
+  subImage2: str
+  buildingImage: str
+  blueprint: str
+  costImage: str
+  officeImage: str
+  price : int
+  floorSpace : int
+  roomNumber : int
+  toiletNumber : int
+  hasLoft : bool
+
+
+
 
 
 

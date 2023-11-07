@@ -7,6 +7,7 @@ from config.database import engineconn
 from routers.office_router import office_router
 from routers.person_router import person_router
 from routers.post_router import post_router
+from routers.house_router import house_router
 from routers.security_router import security_router
 
 app = FastAPI(
@@ -29,6 +30,7 @@ app.add_middleware(
 app.include_router(office_router)
 app.include_router(person_router)
 app.include_router(post_router)
+app.include_router(house_router)
 app.include_router(security_router)
 
 # http://127.0.0.1:8000/docs

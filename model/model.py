@@ -1,5 +1,5 @@
 from datetime import datetime
-from sqlalchemy import Column, TEXT, BIGINT, BOOLEAN, DateTime
+from sqlalchemy import ARRAY, Column, TEXT, BIGINT, BOOLEAN, DateTime
 from sqlalchemy.orm import  declarative_base
   
 Base = declarative_base()
@@ -28,9 +28,9 @@ class Person(Base):
 
 class Comment(Base):
   __tablename__ = 'comment'
-  id= Column(BIGINT, nullable=False, autoincrement=True, primary_key=True)
-  author=Column(BIGINT, nullable=False)
-  text=Column(TEXT, nullable=False)
+  id = Column(BIGINT, nullable=False, autoincrement=True, primary_key=True)
+  author = Column(BIGINT, nullable=False)
+  text = Column(TEXT, nullable=False)
 
 class Post(Base):
   __tablename__ = 'post'
@@ -46,5 +46,30 @@ class Post(Base):
   likeCount = Column(BIGINT, nullable=False)
   viewCount = Column(BIGINT, nullable=False)
   comments = Column(TEXT, nullable=False)
-  
+
+class RatingPost(Base):
+  __tablename__ = 'rating_post'
+  id = Column(BIGINT, nullable=False, autoincrement=True, primary_key=True)
+  title = Column(TEXT, nullable=False)
+  thumbnail = Column(TEXT, nullable=False)
+  author = Column(BIGINT, nullable=False)
+  rate = Column(BIGINT, nullable=False)
+
+class House(Base):
+  __tablename__ = 'house'
+  id = Column(BIGINT, nullable=False, autoincrement=True, primary_key=True)
+  title = Column(TEXT, nullable=False)
+  image = Column(TEXT, nullable=False)
+  subImage1 = Column(TEXT, nullable=False)
+  subImage2 = Column(TEXT, nullable=False)
+  buildingImage = Column(TEXT, nullable=False)
+  blueprint = Column(TEXT, nullable=False)
+  costImage = Column(TEXT, nullable=False)
+  officeImage = Column(TEXT, nullable=False)
+  price = Column(BIGINT, nullable=False)
+  floorSpace = Column(BIGINT, nullable=False)
+  roomNumber = Column(BIGINT, nullable=False)
+  toiletNumber = Column(BIGINT, nullable=False)
+  hasLoft = Column(BOOLEAN, nullable=False)
+
 

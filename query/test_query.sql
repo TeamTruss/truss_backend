@@ -1,4 +1,4 @@
-CREATE SCHEMA truss_data
+CREATE SCHEMA truss_data;
 
 create table office
 (
@@ -41,6 +41,33 @@ create table post
   viewCount BIGINT not null,
   comments TEXT not null
 );
+
+create table house
+(
+  id BIGINT auto_increment,
+  primary key (id),
+  title TEXT not null,
+  image TEXT not null,
+  subImage1 TEXT not null,
+  subImage2 TEXT not null,
+  buildingImage TEXT not null,
+  blueprint TEXT not null,
+  costImage TEXT not null,
+  officeImage TEXT not null,
+  price BIGINT not null,
+  floorSpace BIGINT not null,
+  roomNumber BIGINT not null,
+  toiletNumber BIGINT not null,
+  hasLoft BOOLEAN not null
+);
+
+
+
+
+
+
+
+
 
 
 
