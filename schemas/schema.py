@@ -31,6 +31,24 @@ class PostSchema(BaseModel):
   viewCount : int
   comments : str
 
+class HouseSchema(BaseModel):
+  title : str
+  image: str
+  subImage1: str
+  subImage2: str
+  buildingImage: str
+  blueprint: str
+  costImage: str
+  officeImage: str
+  price : int
+  floorSpace : int
+  roomNumber : int
+  toiletNumber : int
+  hasLoft : bool
+
+
+
+
 
 
 class BuildingSchema(BaseModel): 
