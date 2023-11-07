@@ -26,6 +26,31 @@ create table person
   agree BOOLEAN
 );
 
+create table user
+{ 
+  id BIGINT auto_increment,
+  primary key (id),
+  name TEXT not null,
+  email TEXT not null
+};
+
+create table post
+(
+  id BIGINT auto_increment,
+  primary key (id),
+  title TEXT not null,
+  text TEXT not null,
+  pictures TEXT not null,
+  author TEXT not null,
+  created_at DATETIME not null DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME not null DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  category TEXT not null,
+  thumbnail TEXT not null,
+  likeCount BIGINT not null,
+  viewCount BIGINT not null,
+  comments TEXT not null
+);
+
 
 
 create table building

@@ -32,5 +32,5 @@ async def post_office(office:OfficeSchema):
 
 @office_router.get("/")
 async def get_offices():
-  response=session.query(Office).all()
+  response=session.query(Office).all()#filter(Office.age > 20)
   return response
