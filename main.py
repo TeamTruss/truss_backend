@@ -2,8 +2,8 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
 from config.CORS import origins, methods, headers
-
 from config.database import engineconn
+
 from routers.office_router import office_router
 from routers.person_router import person_router
 from routers.post_router import post_router

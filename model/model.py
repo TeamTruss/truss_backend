@@ -32,6 +32,11 @@ class Comment(Base):
   author = Column(BIGINT, nullable=False)
   text = Column(TEXT, nullable=False)
 
+class User(Base):
+  __tablename__ = 'User'
+  id=Column(BIGINT, nullable=False, autoincrement=True, primary_key=True)
+  name=Column(TEXT, nullable=False)
+
 class Post(Base):
   __tablename__ = 'post'
   id = Column(BIGINT, nullable=False, autoincrement=True, primary_key=True)
@@ -39,8 +44,8 @@ class Post(Base):
   text = Column(TEXT, nullable=False)
   pictures = Column(TEXT, nullable=False)
   author = Column(TEXT, nullable=False)
-  created_at = Column(DateTime, default=datetime.now)
-  updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)
+  created_at = Column(DateTime, nullable=False, default=datetime.now)
+  updated_at = Column(DateTime, nullable=False, default=datetime.now, onupdate=datetime.now)
   category = Column(TEXT, nullable=False)
   thumbnail = Column(TEXT, nullable=False)
   likeCount = Column(BIGINT, nullable=False)

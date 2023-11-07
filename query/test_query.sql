@@ -1,4 +1,4 @@
-CREATE SCHEMA truss_data;
+CREATE SCHEMA truss_data
 
 create table office
 (
@@ -26,6 +26,14 @@ create table person
   agree BOOLEAN
 );
 
+create table user
+{ 
+  id BIGINT auto_increment,
+  primary key (id),
+  name TEXT not null,
+  email TEXT not null
+};
+
 create table post
 (
   id BIGINT auto_increment,
@@ -34,40 +42,14 @@ create table post
   text TEXT not null,
   pictures TEXT not null,
   author TEXT not null,
-  timestamp BIGINT not null,
+  created_at DATETIME not null DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME not null DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   category TEXT not null,
   thumbnail TEXT not null,
   likeCount BIGINT not null,
   viewCount BIGINT not null,
   comments TEXT not null
 );
-
-create table house
-(
-  id BIGINT auto_increment,
-  primary key (id),
-  title TEXT not null,
-  image TEXT not null,
-  subImage1 TEXT not null,
-  subImage2 TEXT not null,
-  buildingImage TEXT not null,
-  blueprint TEXT not null,
-  costImage TEXT not null,
-  officeImage TEXT not null,
-  price BIGINT not null,
-  floorSpace BIGINT not null,
-  roomNumber BIGINT not null,
-  toiletNumber BIGINT not null,
-  hasLoft BOOLEAN not null
-);
-
-
-
-
-
-
-
-
 
 
 

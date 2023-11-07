@@ -14,7 +14,6 @@ session = engine.sessionmaker()
 
 @security_router.post("/signin")
 async def signin(token: str = Depends(oauth2_scheme)):
-  
   return { "token": token }
 
 @security_router.post("/signout")
