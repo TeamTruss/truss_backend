@@ -12,7 +12,7 @@ house_router = APIRouter(
 engine = engineconn()
 session = engine.sessionmaker()
 
-@house_router.post("/")
+@house_router.post("")
 async def post_house(house:HouseSchema):
   
   session.add(
@@ -37,7 +37,7 @@ async def post_house(house:HouseSchema):
   
   return house
 
-@house_router.get("/")
+@house_router.get("")
 async def get_house():
   response=session.query(House).all()
   return response
@@ -47,7 +47,7 @@ async def get_house(pid: int):
   response=session.query(House).filter(House.id == pid).all()
   return response
 
-@house_router.get("/count/")
+@house_router.get("/count")
 async def get_house_count():
   response=session.query(House).count()
   return response

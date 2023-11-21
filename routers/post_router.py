@@ -13,7 +13,7 @@ post_router = APIRouter(
 engine = engineconn()
 session = engine.sessionmaker()
 
-@post_router.post("/")
+@post_router.post("")
 async def post_post(post:PostSchema):
   session.add(
     Post(
@@ -36,7 +36,7 @@ async def post_post(post:PostSchema):
     session.close() 
   return post
 
-@post_router.get("/")
+@post_router.get("")
 async def get_posts():
   response=session.query(Post).all()#.filter(Post.timestamp > 20)
   return response
