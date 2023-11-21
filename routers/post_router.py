@@ -19,16 +19,21 @@ async def post_post(post:PostSchema):
     Post(
       title = post.title,
       text = post.text,
-      pictures = post.pictures,
       author = post.author,
       category = post.category,
       thumbnail = post.thumbnail,
-      likeCount = post.likeCount,
-      viewCount = post.viewCount,
-      comments = post.comments
+      likeCount = 0,
+      viewCount = 0,
+      comments = ""
     )
   )
-  session.commit()
+  try:
+    session.commit()
+  except:
+    session.rollback()
+    raise
+  finally:
+    session.close() 
   return post
 
 @post_router.get("/")

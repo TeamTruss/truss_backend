@@ -23,13 +23,9 @@ class PersonSchema(BaseModel):
 class PostSchema(BaseModel):
   title : str
   text : str
-  pictures : str
   author : str
   category : str
   thumbnail : str
-  likeCount : int
-  viewCount : int
-  comments : str
 
 class HouseSchema(BaseModel):
   title : str

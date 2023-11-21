@@ -42,7 +42,6 @@ class Post(Base):
   id = Column(BIGINT, nullable=False, autoincrement=True, primary_key=True)
   title = Column(TEXT, nullable=False)
   text = Column(TEXT, nullable=False)
-  pictures = Column(TEXT, nullable=False)
   author = Column(TEXT, nullable=False)
   created_at = Column(DateTime, nullable=False, default=datetime.now)
   updated_at = Column(DateTime, nullable=False, default=datetime.now, onupdate=datetime.now)
