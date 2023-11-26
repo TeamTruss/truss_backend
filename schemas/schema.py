@@ -32,6 +32,7 @@ class HouseSchema(BaseModel):
   image: str
   subImage1: str
   subImage2: str
+  detailImage: str
   buildingImage: str
   blueprint: str
   costImage: str
