@@ -66,6 +66,7 @@ class House(Base):
   image = Column(TEXT, nullable=False)
   subImage1 = Column(TEXT, nullable=False)
   subImage2 = Column(TEXT, nullable=False)
+  detailImage = Column(TEXT, nullable=False)
   buildingImage = Column(TEXT, nullable=False)
   blueprint = Column(TEXT, nullable=False)
   costImage = Column(TEXT, nullable=False)

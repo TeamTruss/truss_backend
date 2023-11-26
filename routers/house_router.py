@@ -21,6 +21,7 @@ async def post_house(house:HouseSchema):
       image = house.image,
       subImage1 = house.subImage1,
       subImage2 = house.subImage2,
+      detailImage = house.detailImage,
       buildingImage = house.buildingImage,
       blueprint = house.blueprint,
       costImage = house.costImage,
