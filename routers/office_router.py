@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from model.model import Office
-from schemas.schema import OfficeSchema
+from model.OfficeModel import Office
+from schemas.OfficeSchema import PostOfficeSchema
 from config.database import engineconn
 
 office_router = APIRouter(
@@ -13,7 +13,7 @@ engine = engineconn()
 session = engine.sessionmaker()
 
 @office_router.post("/")
-async def post_office(office:OfficeSchema):
+async def post_office(office:PostOfficeSchema):
   session.add(
     Office(
       officeType = office.officeType,
