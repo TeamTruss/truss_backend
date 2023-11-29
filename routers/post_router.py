@@ -1,7 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from sqlalchemy import func
-from model.model import Post
-from schemas.schema import PostSchema
+from model.PostModel import Post
+from schemas.PostSchema import PostPostSchema
 from config.database import engineconn
 
 post_router = APIRouter(
@@ -14,7 +13,7 @@ engine = engineconn()
 session = engine.sessionmaker()
 
 @post_router.post("")
-async def post_post(post:PostSchema):
+async def post_post(post:PostPostSchema):
   session.add(
     Post(
       title = post.title,

@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from model.model import Person
-from schemas.schema import PersonSchema
+from model.PersonModel import Person
+from schemas.PersonSchema import PostPersonSchema
 from config.database import engineconn
 
 person_router = APIRouter(
@@ -13,7 +13,7 @@ engine = engineconn()
 session = engine.sessionmaker()
 
 @person_router.post("/")
-async def post_person(person:PersonSchema):
+async def post_person(person:PostPersonSchema):
   session.add(
     Person(
       name = person.name,
