@@ -32,12 +32,14 @@ async def post_post(post:PostPostSchema):
     session.rollback()
     raise
   finally:
-    session.close() 
+    session.close()
   return post
 
 @post_router.get("")
 async def get_posts():
-  response=session.query(Post).all()#.filter(Post.timestamp > 20)
+  response=session.query(Post).order_by(
+     Post.created_at.desc()
+   ).all()#.filter(Post.timestamp > 20)
   return response
 
 @post_router.get("/{pid}")
