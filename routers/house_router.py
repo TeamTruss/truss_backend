@@ -42,9 +42,9 @@ async def get_house(skip:int, limit:int ,price:Optional[int]=None, floorSpace:Op
   response=session.query(House)
   if(price): response=response.filter(House.price<=price)
   if(floorSpace): response=response.filter(House.floorSpace<=floorSpace)
-  if(roomNumber): response=response.filter(House.roomNumber<=roomNumber)
-  if(toiletNumber): response=response.filter(House.toiletNumber<=toiletNumber)
-  response=response.all()
+  if(roomNumber): response=response.filter(House.roomNumber==roomNumber)
+  if(toiletNumber): response=response.filter(House.toiletNumber==toiletNumber)
+  response=response.order_by(House.id.desc()).all()
   return response[skip : skip + limit]
 
 @house_router.get("/last")
