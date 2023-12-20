@@ -1,3 +1,4 @@
+from gc import get_count
 from fastapi import APIRouter, HTTPException
 from typing import Optional
 from model.HouseModel import House
@@ -38,7 +39,7 @@ async def post_house(house:PostHouseSchema):
   return house
 
 @house_router.get("")
-async def get_house(skip:int, limit:int ,price:Optional[int]=None, floorSpace:Optional[int]=None, roomNumber:Optional[int]=None, toiletNumber:Optional[int]=None):
+async def get_houses(skip:int, limit:int, price:Optional[int]=None, floorSpace:Optional[int]=None, roomNumber:Optional[int]=None, toiletNumber:Optional[int]=None):
   response=session.query(House)
   if(price): response=response.filter(House.price<=price)
   if(floorSpace): response=response.filter(House.floorSpace<=floorSpace)
@@ -52,7 +53,17 @@ async def get_house_last():
   response=session.query(House).order_by(House.id.desc()).first()
   return response
 
+@house_router.get("/count")
+async def get_house_count(price:Optional[int]=None, floorSpace:Optional[int]=None, roomNumber:Optional[int]=None, toiletNumber:Optional[int]=None):
+  response=session.query(House)
+  if(price): response=response.filter(House.price<=price)
+  if(floorSpace): response=response.filter(House.floorSpace<=floorSpace)
+  if(roomNumber): response=response.filter(House.roomNumber==roomNumber)
+  if(toiletNumber): response=response.filter(House.toiletNumber==toiletNumber)
+  return get_count(response)
+
 @house_router.get("/{pid}")
 async def get_house(pid: int):
   response=session.query(House).filter(House.id == pid).all()
   return response
+
