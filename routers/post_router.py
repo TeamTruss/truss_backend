@@ -1,7 +1,9 @@
 from fastapi import APIRouter, HTTPException
+from typing import Optional
 from model.PostModel import Post
 from schemas.PostSchema import PostPostSchema
 from config.database import engineconn
+import logging
 
 post_router = APIRouter(
   prefix="/api/post",
@@ -14,8 +16,7 @@ session = engine.sessionmaker()
 
 @post_router.post("")
 async def post_post(post:PostPostSchema):
-  session.add(
-    Post(
+  response=Post(
       title = post.title,
       text = post.text,
       author = post.author,
@@ -25,22 +26,21 @@ async def post_post(post:PostPostSchema):
       viewCount = 0,
       comments = ""
     )
-  )
-  try:
-    session.commit()
-  except:
-    session.rollback()
-    raise
-  finally:
-    session.close()
-  return post
+  session.add(response)
+  return session.query(Post).order_by(Post.id.desc()).first()
 
 @post_router.get("")
-async def get_posts():
-  response=session.query(Post).order_by(
-     Post.created_at.desc()
-   ).all()#.filter(Post.timestamp > 20)
-  return response
+async def get_posts(skip:int, limit:int, category:Optional[str]=None):
+  response=session.query(Post)
+  if(category): response=response.filter(Post.category==category)
+  response=response.order_by(Post.id.desc()).all()
+  return response[skip : skip + limit]
+
+@post_router.get("/count")
+async def get_posts_count(category:Optional[str]=None):
+  response=session.query(Post)
+  if(category): response=response.filter(Post.category==category)
+  return response.count()
 
 @post_router.get("/{pid}")
 async def get_post(pid:int):
