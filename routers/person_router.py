@@ -14,17 +14,19 @@ session = engine.sessionmaker()
 
 @person_router.post("/")
 async def post_person(person:PostPersonSchema):
-  session.add(
-    Person(
-      name = person.name,
-      phoneNumber = person.phoneNumber,
-      type = person.type,
-      location = person.location,
-      agree = person.agree,
+  try:
+    session.add(
+      Person(
+        name = person.name,
+        phoneNumber = person.phoneNumber,
+        type = person.type,
+        location = person.location,
+        agree = person.agree,
+      )
     )
-  )
-  session.commit()
-  return person
+    session.commit()
+  except:
+    session.rollback()
 
 @person_router.get("/")
 async def get_persons():

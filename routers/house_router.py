@@ -16,27 +16,28 @@ session = engine.sessionmaker()
 
 @house_router.post("")
 async def post_house(house:PostHouseSchema):
-  session.add(
-    House(
-      title = house.title,
-      image = house.image,
-      subImage1 = house.subImage1,
-      subImage2 = house.subImage2,
-      detailImage = house.detailImage,
-      buildingImage = house.buildingImage,
-      blueprint = house.blueprint,
-      costImage = house.costImage,
-      officeImage = house.officeImage,
-      price = house.price,
-      floorSpace = house.floorSpace,
-      roomNumber = house.roomNumber,
-      toiletNumber = house.toiletNumber,
-      hasLoft = house.hasLoft,
+  try:
+    session.add(
+      House(
+        title = house.title,
+        image = house.image,
+        subImage1 = house.subImage1,
+        subImage2 = house.subImage2,
+        detailImage = house.detailImage,
+        buildingImage = house.buildingImage,
+        blueprint = house.blueprint,
+        costImage = house.costImage,
+        officeImage = house.officeImage,
+        price = house.price,
+        floorSpace = house.floorSpace,
+        roomNumber = house.roomNumber,
+        toiletNumber = house.toiletNumber,
+        hasLoft = house.hasLoft,
+      )
     )
-  )
-  session.commit()
-  
-  return house
+    session.commit()
+  except:
+    session.rollback()
 
 @house_router.get("")
 async def get_houses(skip:int, limit:int, price:Optional[int]=None, floorSpace:Optional[int]=None, roomNumber:Optional[int]=None, toiletNumber:Optional[int]=None):

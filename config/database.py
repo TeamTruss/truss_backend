@@ -20,7 +20,7 @@ class engineconn:
     self.engine = create_engine(DB_CONN_URL)
 
   def sessionmaker(self):
-    return sessionmaker(bind=self.engine)()
+    return sessionmaker(bind=self.engine, autoflush=True, autocommit=False)()
   
   def connection(self):
     return self.engine.connect()
