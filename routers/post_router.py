@@ -32,6 +32,8 @@ async def post_post(post:PostPostSchema):
     return session.query(Post).order_by(Post.id.desc()).first()
   except:
     session.rollback()
+  finally:
+    session.close()
 
 @post_router.get("")
 async def get_posts(skip:int, limit:int, category:Optional[str]=None):
