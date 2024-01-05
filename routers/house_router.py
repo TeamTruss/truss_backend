@@ -38,6 +38,8 @@ async def post_house(house:PostHouseSchema):
     session.commit()
   except:
     session.rollback()
+  finally:
+    session.close()
 
 @house_router.get("")
 async def get_houses(skip:int, limit:int, price:Optional[int]=None, floorSpace:Optional[int]=None, roomNumber:Optional[int]=None, toiletNumber:Optional[int]=None):

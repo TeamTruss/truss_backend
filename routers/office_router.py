@@ -31,6 +31,8 @@ async def post_office(office:PostOfficeSchema):
     session.commit()
   except:
     session.rollback()
+  finally:
+    session.close()
 
 @office_router.get("/")
 async def get_offices():

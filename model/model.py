@@ -10,11 +10,6 @@ class Comment(Base):
   author = Column(BIGINT, nullable=False)
   text = Column(TEXT, nullable=False)
 
-class User(Base):
-  __tablename__ = 'User'
-  id=Column(BIGINT, nullable=False, autoincrement=True, primary_key=True)
-  name=Column(TEXT, nullable=False)
-
 class RatingPost(Base):
   __tablename__ = 'rating_post'
   id = Column(BIGINT, nullable=False, autoincrement=True, primary_key=True)
