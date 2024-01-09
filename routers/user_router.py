@@ -24,10 +24,16 @@ async def post_user(User:PostUserSchema):
     session.commit()
   except:
     session.rollback()
+    raise
   finally:
     session.close()
 
 @user_router.get("/")
 async def get_users():
   response=session.query(User).all()
+  return response
+
+@user_router.get("/{pid}")
+async def get_user(pid: int):
+  response=session.query(User).filter(User.id==pid).one()
   return response

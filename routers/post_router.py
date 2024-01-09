@@ -32,15 +32,22 @@ async def post_post(post:PostPostSchema):
     return session.query(Post).order_by(Post.id.desc()).first()
   except:
     session.rollback()
+    raise
   finally:
     session.close()
 
 @post_router.get("")
 async def get_posts(skip:int, limit:int, category:Optional[str]=None):
-  response=session.query(Post)
-  if(category): response=response.filter(Post.category==category)
-  response=response.order_by(Post.id.desc()).all()
-  return response[skip : skip + limit]
+  try:
+    response=session.query(Post)
+    if(category): response=response.filter(Post.category==category)
+    response=response.order_by(Post.id.desc()).all()
+    return response[skip : skip + limit]
+  except:
+    session.rollback()
+    raise
+  finally:
+    session.close()
 
 @post_router.get("/count")
 async def get_posts_count(category:Optional[str]=None):

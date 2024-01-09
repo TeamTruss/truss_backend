@@ -38,18 +38,25 @@ async def post_house(house:PostHouseSchema):
     session.commit()
   except:
     session.rollback()
+    raise
   finally:
     session.close()
 
 @house_router.get("")
 async def get_houses(skip:int, limit:int, price:Optional[int]=None, floorSpace:Optional[int]=None, roomNumber:Optional[int]=None, toiletNumber:Optional[int]=None):
-  response=session.query(House)
-  if(price): response=response.filter(House.price<=price)
-  if(floorSpace): response=response.filter(House.floorSpace<=floorSpace)
-  if(roomNumber): response=response.filter(House.roomNumber==roomNumber)
-  if(toiletNumber): response=response.filter(House.toiletNumber==toiletNumber)
-  response=response.order_by(House.id.desc()).all()
-  return response[skip : skip + limit]
+  try:
+    response=session.query(House)
+    if(price): response=response.filter(House.price<=price)
+    if(floorSpace): response=response.filter(House.floorSpace<=floorSpace)
+    if(roomNumber): response=response.filter(House.roomNumber==roomNumber)
+    if(toiletNumber): response=response.filter(House.toiletNumber==toiletNumber)
+    response=response.order_by(House.id.desc()).all()
+    return response[skip : skip + limit]
+  except:
+    session.rollback()
+    raise
+  finally:
+    session.close()
 
 @house_router.get("/last")
 async def get_house_last():
